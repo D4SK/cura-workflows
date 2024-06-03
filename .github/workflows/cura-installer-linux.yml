@@ -121,6 +121,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-conan-downloads-
 
+      - name: Set up GPG
+        run: |
+          mkdir -p ~/.gnupg
+          chmod 700 ~/.gnupg
+          echo "use-agent" > ~/.gnupg/gpg.conf
+          echo "pinentry-mode loopback" > ~/.gnupg/gpg-agent.conf
+          gpg-agent --daemon
+          export GPG_TTY=$(tty)
+
       - name: Configure GPG Key Linux (Bash)
         run: |
           export GPG_TTY=$(tty)
