@@ -156,11 +156,11 @@ jobs:
           chmod +x "${{ steps.filename.outputs.INSTALLER_FILENAME }}.AppImage"
         working-directory: dist
 
-      - name: Upload the lib(std)c(++) debug symbols
-        run: |
-          find AppDir/ -name 'libc.*' -exec sentry-cli --auth-token $SENTRY_TOKEN debug-files upload {} \;
-          find AppDir/ -name 'libstdc++.*' -exec sentry-cli --auth-token $SENTRY_TOKEN debug-files upload {} \;
-        working-directory: dist
+      # - name: Upload the lib(std)c(++) debug symbols
+      #   run: |
+      #     find AppDir/ -name 'libc.*' -exec sentry-cli --auth-token $SENTRY_TOKEN debug-files upload {} \;
+      #     find AppDir/ -name 'libstdc++.*' -exec sentry-cli --auth-token $SENTRY_TOKEN debug-files upload {} \;
+      #   working-directory: dist
 
       - name: Remove internal packages before uploading
         run: |
