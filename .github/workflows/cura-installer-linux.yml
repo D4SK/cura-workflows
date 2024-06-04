@@ -152,7 +152,10 @@ jobs:
 
       - name: Create the Linux AppImage (Bash)
         run: |
-          python ../cura_inst/packaging/AppImage-builder/create_appimage.py ./UltiMaker-Cura $CURA_VERSION_FULL "${{ steps.filename.outputs.INSTALLER_FILENAME }}.AppImage"
+          # Disable appimage signing in the script
+          sed -i '/^\s*sign_appimage/d' ../cura_inst/packaging/AppImage-builder/create_appimage.py
+          # Ignore errors
+          python ../cura_inst/packaging/AppImage-builder/create_appimage.py ./UltiMaker-Cura $CURA_VERSION_FULL "${{ steps.filename.outputs.INSTALLER_FILENAME }}.AppImage" || true
           chmod +x "${{ steps.filename.outputs.INSTALLER_FILENAME }}.AppImage"
         working-directory: dist
 
