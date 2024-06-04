@@ -23,7 +23,7 @@ def initialize_artifactory():
     return pyartifactory.Artifactory(url=ARTIFACTORY_BASE_URL, auth=(USERNAME, PASSWORD))
 
 ARTIFACT_PATHS = {"cura-conan-dev-local/ultimaker/curaengine"          : True,
-                  "cura-conan-dev-local/ultimaker/cura"                : False,
+                  "cura-conan-dev-local/ultimaker/cura"                : True,
                   "cura-conan-dev-local/ultimaker/fdm_printer"         : True,
                   "cura-conan-dev-local/ultimaker/uranium"             : True,
                   "cura-conan-dev-local/_/curaengine"                  : True,
@@ -35,7 +35,7 @@ ARTIFACT_PATHS = {"cura-conan-dev-local/ultimaker/curaengine"          : True,
                   "cura-conan-cci-remote-cache/ultimaker/fdm_printer"  : True,
                   "cura-conan-cci-remote-cache/ultimaker/uranium"      : True,
                   "cura-conan-cci-remote-cache/_/curaengine"           : True,
-                  "cura-conan-cci-remote-cache/_/cura"                 : False,
+                  "cura-conan-cci-remote-cache/_/cura"                 : True,
                   "cura-conan-cci-remote-cache/_/fdm_printer"          : True,
                   "cura-conan-cci-remote-cache/_/uranium"              : True,
                   "cura_conan-cci-remote-cache"	                       : False}
